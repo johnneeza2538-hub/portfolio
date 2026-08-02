@@ -138,7 +138,7 @@ const gameUiData = [
     ],
   },{ title: "Drinkopoly", tag: "UI Kit", desc: "Developed a modular vector character system with interchangeable parts, enabling efficient creation of diverse characters while maintaining a consistent visual style.",
     tagTh: "ชุด UI", descTh: "พัฒนาระบบตัวละครเวกเตอร์แบบโมดูลาร์ที่สลับชิ้นส่วนได้ ช่วยให้สร้างตัวละครหลากหลายได้อย่างมีประสิทธิภาพ พร้อมคงสไตล์ภาพให้สม่ำเสมอ",
-    cover: "images/game-ui/ui_cover_3.png" ,
+    cover: "images/game-ui/UI_cover_3.png" ,
     images: [
     "images/game-ui/UI_3_1.png",
     "images/game-ui/UI_3_2.png",
@@ -146,7 +146,7 @@ const gameUiData = [
     ],
   },{ title: "Couple Games", tag: "UI Kit", desc: "Designed a cohesive set of vector icons and illustrations for deck themes, paywalls, and in-app UI, enhancing visual communication and supporting a consistent user experience.",
     tagTh: "ชุด UI", descTh: "ออกแบบชุดไอคอนและภาพประกอบเวกเตอร์ที่กลมกลืนกันสำหรับธีมการ์ด หน้า Paywall และ UI ภายในแอป ช่วยเสริมการสื่อสารด้วยภาพและประสบการณ์ผู้ใช้ที่สอดคล้องกัน",
-    cover: "images/game-ui/ui_cover_4.png" ,
+    cover: "images/game-ui/UI_cover_4.png" ,
     images: [
     "images/game-ui/UI_4_1.png",
     "images/game-ui/UI_4_2.png",
