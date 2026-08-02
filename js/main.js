@@ -43,20 +43,26 @@ function renderGrid(containerId, items) {
   }).join("");
 }
 
-// แถบเครดิตโลโก้แอป — โชว์แค่โลโก้ + ชื่อ ไม่มีปุ่มลิงก์สโตร์
+// แถบเครดิตโลโก้แอป — โชว์แค่โลโก้ + ชื่อ (ไม่มีปุ่ม Play/App Store แยกให้เห็น)
+// แต่ทั้งการ์ดยังกดได้ — ไปที่ playUrl หรือ appStoreUrl (อันไหนมีใช้อันนั้น) เปิดแท็บใหม่
 function renderAppLogos(containerId, items) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  container.innerHTML = items.map(item => `
-    <div class="app-logo" title="${item.name}">
+  container.innerHTML = items.map(item => {
+    const url = item.playUrl || item.appStoreUrl || "";
+    const tag = url ? "a" : "div";
+    const hrefAttr = url ? ` href="${url}" target="_blank" rel="noopener noreferrer"` : "";
+    return `
+    <${tag} class="app-logo" title="${item.name}"${hrefAttr}>
       <span class="app-logo__media">
         <img src="${item.logo}" alt="${item.name}" loading="lazy"
              onerror="this.closest('.app-logo__media').classList.add('app-logo__media--empty'); this.remove();">
         <span class="app-logo__placeholder-label">${item.logo}</span>
       </span>
       <span class="app-logo__name">${item.name}</span>
-    </div>
-  `).join("");
+    </${tag}>
+  `;
+  }).join("");
 }
 
 // เรียกใหม่ทุกครั้งที่สลับภาษา เพื่อให้การ์ดผลงานอัปเดตข้อความตาม currentLang
