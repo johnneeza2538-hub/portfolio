@@ -174,6 +174,7 @@ const asoData = [
     "images/aso/ASO_2_2.png",
     "images/aso/ASO_2_3.png",
     "images/aso/ASO_2_4.png",
+    "images/aso/ASO_2_5.png",
     ],
   },
   { title: "Additional Apps", tag: "App Icon + Screenshots", desc: "Designed and localized ASO assets across multiple party game titles, maintaining a consistent visual identity while adapting each product to its target audience.",
@@ -183,6 +184,7 @@ const asoData = [
     "images/aso/ASO_3_1.png",
     "images/aso/ASO_3_2.png",
     "images/aso/ASO_3_3.png",
+    "images/aso/ASO_3_4.png",
     ],
   },
 ];
