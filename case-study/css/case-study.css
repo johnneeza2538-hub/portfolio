@@ -1,0 +1,67 @@
+/*
+  สไตล์เฉพาะของหน้า Case Study — ต่อยอดจาก ../../css/style.css (ธีมเดิม, ใช้ CSS variable ชุดเดียวกัน)
+  ไม่มีการ redeclare :root ที่นี่ เพื่อไม่ให้ชนกับธีมหลัก
+*/
+
+/* หมายเหตุกลับไปเว็บหลัก */
+.case-back-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 20px;
+}
+.case-back-note a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ป้ายฉบับร่าง บนการ์ดและในหน้ารายละเอียด */
+.case-draft-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px dashed var(--accent);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+/* สรุปสั้นในหน้ารายละเอียด (ใต้ชื่อโปรเจค) */
+.case-summary {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+/* หัวข้อย่อยของ case study: Overview / Problem / Approach / Result */
+.case-section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.case-section h4 {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.case-section p {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ลิสต์ขั้นตอน (Approach) */
+.case-steps {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.case-steps li { margin-bottom: 8px; }
+.case-steps li:last-child { margin-bottom: 0; }

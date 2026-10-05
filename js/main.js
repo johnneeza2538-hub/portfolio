@@ -43,6 +43,33 @@ function renderGrid(containerId, items) {
   }).join("");
 }
 
+// การ์ดงาน Motion — โชว์เฟรมแรก/poster ของวิดีโอ คลิกแล้วเปิดเล่นใน lightbox
+function renderMotionGrid(containerId, items) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = items.map((item, i) => {
+    const title = localized(item, "title");
+    const tag = localized(item, "tag");
+    const desc = localized(item, "desc");
+    const replaceLabel = currentLang === "th" ? `ใส่ไฟล์วิดีโอที่<br>${item.video}` : `Add video file at:<br>${item.video}`;
+    const posterAttr = item.poster ? ` poster="${item.poster}"` : "";
+    return `
+    <article class="card" data-index="${i}" data-container="${containerId}">
+      <div class="card__media card__media--video">
+        <video src="${item.video}"${posterAttr} muted loop playsinline preload="metadata"
+               onerror="this.closest('.card__media').classList.add('card__media--empty'); this.remove();"></video>
+        <span class="card__placeholder-label">${replaceLabel}</span>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">${tag}</span>
+        <h3 class="card__title">${title}</h3>
+        <p class="card__desc">${desc}</p>
+      </div>
+    </article>
+  `;
+  }).join("");
+}
+
 // แถบเครดิตโลโก้แอป — โชว์แค่โลโก้ + ชื่อ (ไม่มีปุ่ม Play/App Store แยกให้เห็น)
 // แต่ทั้งการ์ดยังกดได้ — ไปที่ playUrl หรือ appStoreUrl (อันไหนมีใช้อันนั้น) เปิดแท็บใหม่
 function renderAppLogos(containerId, items) {
@@ -70,6 +97,7 @@ function renderAllPortfolio() {
   renderGrid("gameMapsGrid", gameMapsData);
   renderGrid("gameUiGrid", gameUiData);
   renderGrid("asoGrid", asoData);
+  renderMotionGrid("motionGrid", motionData);
   renderAppLogos("appLogosGrid", appLogosData);
 }
 
@@ -133,13 +161,14 @@ window.addEventListener("scroll", () => {
 });
 
 // lightbox
-const dataMap = { gameMapsGrid: gameMapsData, gameUiGrid: gameUiData, asoGrid: asoData };
+const dataMap = { gameMapsGrid: gameMapsData, gameUiGrid: gameUiData, asoGrid: asoData, motionGrid: motionData };
 const lightbox = document.getElementById("lightbox");
 const lightboxContent = document.getElementById("lightboxContent");
 const lightboxClose = document.getElementById("lightboxClose");
 
 function closeLightbox() {
   lightbox.classList.remove("is-open");
+  lightboxContent.querySelectorAll("video").forEach(v => v.pause());
   lightboxContent.scrollTop = 0;
 }
 
@@ -151,7 +180,10 @@ document.querySelectorAll(".grid").forEach(grid => {
     const title = localized(item, "title");
     const tag = localized(item, "tag");
     const desc = localized(item, "desc");
-    const imagesHtml = getImages(item).map(src => `
+    const imagesHtml = item.video ? `
+      <video class="lightbox__video" src="${item.video}" controls autoplay loop playsinline
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'lightbox__empty', innerText: missingImageText('${item.video}')}))"></video>
+    ` : getImages(item).map(src => `
       <img class="lightbox__image" src="${src}" alt="${title}"
            onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'lightbox__empty', innerText: missingImageText('${src}')}))">
     `).join("");

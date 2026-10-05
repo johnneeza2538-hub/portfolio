@@ -190,6 +190,42 @@ const asoData = [
 ];
 
 /*
+  งาน Motion (วิดีโอ mp4)
+  - video: พาธไฟล์ mp4 เช่น "videos/motion-01.mp4" (แนะนำบีบให้ไม่เกิน 10–20MB ต่อคลิป, H.264, ไม่เกิน 1080p)
+  - poster: (ไม่บังคับ) รูปปกก่อนกดเล่น เช่น "videos/motion-01.jpg"
+  - title / tag / desc และ titleTh / tagTh / descTh ใช้เหมือน section อื่น
+  - ถ้ายังไม่มีไฟล์ ระบบจะโชว์ placeholder บอกพาธที่ต้องใส่ให้อัตโนมัติ
+  ด้านล่างคือโฆษณา Giiiant Slot 5 คลิป — ตั้งชื่อไฟล์ตามพาธ หรือแก้พาธ/คำอธิบายให้ตรงกับงานจริง
+*/
+const motionData = [
+  { title: "Carpathian Nightmare", tag: "Slot Intro Animation", desc: "Intro animation for the vampire-themed slot, built to feel mysterious and haunting.",
+    titleTh: "Carpathian Nightmare", tagTh: "อนิเมชันเปิดสล็อต", descTh: "อนิเมชันเปิดของสล็อตธีมแวมไพร์ ออกแบบให้รู้สึกลึกลับและหลอนขวัญ",
+    video: "videos/giiant-ad-1.mp4",
+    poster: "videos/giiant-ad-1.jpg",
+  },
+  { title: "Money Express", tag: "Slot Intro Animation", desc: "Intro animation for the train-themed slot, showcasing the luxury and grandeur of the express.",
+    titleTh: "Money Express", tagTh: "อนิเมชันเปิดสล็อต", descTh: "อนิเมชันเปิดของสล็อตธีมรถไฟ โชว์ความหรูหราอลังการของขบวนรถด่วน",
+    video: "videos/giiant-ad-2.mp4",
+    poster: "videos/giiant-ad-2.jpg",
+  },
+  { title: "Cat House", tag: "Slot Intro Animation", desc: "Intro animation for the cat-themed slot, highlighting the cuteness of the kittens.",
+    titleTh: "Cat House", tagTh: "อนิเมชันเปิดสล็อต", descTh: "อนิเมชันเปิดของสล็อตธีมแมว โชว์ความน่ารักของน้องแมว",
+    video: "videos/giiant-ad-3.mp4",
+    poster: "videos/giiant-ad-3.jpg",
+  },
+  { title: "Intergalactic", tag: "Slot Intro Animation", desc: "Intro animation for the space-themed slot, capturing the wonder and mystery of the cosmos.",
+    titleTh: "Intergalactic", tagTh: "อนิเมชันเปิดสล็อต", descTh: "อนิเมชันเปิดของสล็อตธีมอวกาศ ถ่ายทอดความพิศวงและความลึกลับของจักรวาล",
+    video: "videos/giiant-ad-4.mp4",
+    poster: "videos/giiant-ad-4.jpg",
+  },
+  { title: "Sunken City", tag: "Slot Intro Animation", desc: "Intro animation for the underwater-themed slot, evoking the mystery of the deep sea.",
+    titleTh: "Sunken City", tagTh: "อนิเมชันเปิดสล็อต", descTh: "อนิเมชันเปิดของสล็อตธีมใต้ทะเล สร้างบรรยากาศลึกลับใต้ท้องทะเลลึก",
+    video: "videos/giiant-ad-5.mp4",
+    poster: "videos/giiant-ad-5.jpg",
+  },
+];
+
+/*
   แอปที่มีส่วนร่วมพัฒนา (แถบเครดิตโลโก้ ก่อน section ติดต่อ)
   ใช้เฉพาะแอปที่บริษัทอนุญาตให้เครมเครดิตได้เท่านั้น
   - name: ชื่อแอป (โชว์ตอน hover / ใต้โลโก้)
